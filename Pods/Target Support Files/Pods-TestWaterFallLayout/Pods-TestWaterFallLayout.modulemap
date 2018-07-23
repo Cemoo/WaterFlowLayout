@@ -1,0 +1,6 @@
+framework module Pods_TestWaterFallLayout {
+  umbrella header "Pods-TestWaterFallLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

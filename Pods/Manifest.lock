@@ -1,0 +1,33 @@
+PODS:
+  - Alamofire (4.7.2)
+  - mopub-ios-sdk (5.0.0):
+    - mopub-ios-sdk/MoPubSDK (= 5.0.0)
+  - mopub-ios-sdk/Avid (5.0.0):
+    - mopub-ios-sdk/Core
+  - mopub-ios-sdk/Core (5.0.0)
+  - mopub-ios-sdk/Moat (5.0.0):
+    - mopub-ios-sdk/Core
+  - mopub-ios-sdk/MoPubSDK (5.0.0):
+    - mopub-ios-sdk/Avid
+    - mopub-ios-sdk/Core
+    - mopub-ios-sdk/Moat
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
+  - WaterfallLayout (0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - mopub-ios-sdk
+  - SDWebImage (~> 4.0)
+  - WaterfallLayout (~> 0.1)
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  mopub-ios-sdk: fe1302dfcff6929360ea4b7fb1bc7375c13c7074
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  WaterfallLayout: 44cdae408089e6459b0ac39b327dd4030d546f09
+
+PODFILE CHECKSUM: 3906d85422bbf77e4bc449eaacf404bf7fbdbfa2
+
+COCOAPODS: 1.4.0
