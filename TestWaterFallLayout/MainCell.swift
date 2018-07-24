@@ -10,7 +10,7 @@ import UIKit
 import WaterfallLayout
 import MoPub
 
-class MainCell: UITableViewCell {
+class MainCell: UITableViewCell, MPCollectionViewAdPlacerDelegate {
 
     @IBOutlet weak var colView: UICollectionView!
     @IBOutlet weak var adView: UIView!

@@ -30,37 +30,32 @@ class MainVC: UIViewController {
         setPlacer()
         // Do any additional setup after loading the view.
     }
-    
- 
-
 
 }
 
-extension MainVC: UITableViewDelegate, UITableViewDataSource {
+extension MainVC: UITableViewDelegate, UITableViewDataSource, MPAdViewDelegate {
+    func viewControllerForPresentingModalView() -> UIViewController! {
+        return self
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let cell = tbItems.mp_dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainCell
-            cell.items = self.items
-            cell.colView.reloadData()
-            return cell
-        } else {
-            let cell = tbItems.mp_dequeueReusableCell(withIdentifier: "ad", for: indexPath) as! AdCell
-            return cell
-        }
+        let cell = tbItems.mp_dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainCell
+        cell.items = self.items
+        cell.colView.reloadData()
+        return cell
        
-     
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row % 2 == 0 {
             return self.view.frame.size.height
         } else {
-            return 200
+            return 1
         }
         
     }
@@ -89,7 +84,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         let settings = MPStaticNativeAdRendererSettings()
         settings.renderingViewClass = AdCell.self
         settings.viewSizeHandler = { (maxWidth: CGFloat) in
-            return self.calculateHeightForNativeAdCell()
+            return CGSize(width: maxWidth, height: 200)
         }
         
         let videoSettings = MOPUBNativeVideoAdRendererSettings()
@@ -101,21 +96,31 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         
         nativeAdConfig?.supportedCustomEvents = ["FlurryNativeCustomEvent", "FacebookNativeCustomEvent", "MPGoogleAdMobNativeCustomEvent", "MPMoPubNativeCustomEvent"]
         
-        positioning.enableRepeatingPositions(withInterval: 3)
+        positioning.enableRepeatingPositions(withInterval: 2)
         
-        let sampleAdUnitID = "02a2d288d2674ad09f3241d46a44356e"
+        let sampleAdUnitID = "76a3fefaced247959582d2d2df6f4757"
         let targeting: MPNativeAdRequestTargeting! = MPNativeAdRequestTargeting()
         targeting.desiredAssets = NSSet(objects: kAdIconImageKey, kAdMainImageKey, kAdCTATextKey, kAdTextKey, kAdTitleKey) as Set<NSObject>
         
         // Creates a table view ad placer that uses a sample cell for its layout.
         // Replace the defaultAdRenderingClass with your own subclass that implements MPAdRendering.
         
-       // placer = MPTableViewAdPlacer(tableView: self.tbItems, viewController: self, rendererConfigurations: [nativeAdConfig as Any, videoConfiguration as Any])
+        placer = MPTableViewAdPlacer(tableView: self.tbItems, viewController: self, rendererConfigurations: [nativeAdConfig as Any, videoConfiguration as Any])
         
-        placer = MPTableViewAdPlacer(tableView: self.tbItems, viewController: self, adPositioning: positioning, rendererConfigurations: [nativeAdConfig as Any, videoConfiguration as Any])
+       // placer = MPTableViewAdPlacer(tableView: self.tbItems, viewController: self, adPositioning: positioning, rendererConfigurations: [nativeAdConfig as Any, videoConfiguration as Any])
         
         placer.loadAds(forAdUnitID: sampleAdUnitID, targeting: targeting)
-        self.tbItems.reloadData()
+    }
+    
+    func setPlacerView() -> MPAdView {
+        let adView = MPAdView(adUnitId: "76a3fefaced247959582d2d2df6f4757", size: MOPUB_BANNER_SIZE)
+        adView?.delegate = self
+        var frame: CGRect = (adView?.frame)!
+        var size: CGSize = (adView?.adContentViewSize())!
+        frame.origin.y = UIScreen.main.bounds.size.height - size.height
+        adView?.frame = frame
+        adView?.loadAd()
+        return adView!
     }
     
     
