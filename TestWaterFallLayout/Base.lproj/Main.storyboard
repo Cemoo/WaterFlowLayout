@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eho-ij-upb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,6 +55,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="133.5832083958021"/>
+        </scene>
+        <!--MainVC-->
+        <scene sceneID="Oxp-v9-q18">
+            <objects>
+                <viewController id="eho-ij-upb" customClass="MainVC" customModule="TestWaterFallLayout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UKP-0t-fmA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JPg-Q6-i5F">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="512" id="tk6-pZ-yMT" customClass="MainCell" customModule="TestWaterFallLayout" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="512"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tk6-pZ-yMT" id="MwQ-Wo-L3u">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="512"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="REc-VH-HPy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="511.5"/>
+                                                    <color key="backgroundColor" red="0.42320196469999999" green="0.1982780388" blue="0.79796476930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mEt-RN-0yd">
+                                                        <size key="itemSize" width="50" height="50"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Sca-MW-DxR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </view>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="REc-VH-HPy" secondAttribute="bottom" id="2Q0-Ti-EGb"/>
+                                                <constraint firstItem="REc-VH-HPy" firstAttribute="leading" secondItem="MwQ-Wo-L3u" secondAttribute="leading" id="AJo-ao-3bE"/>
+                                                <constraint firstAttribute="trailing" secondItem="REc-VH-HPy" secondAttribute="trailing" id="Tnr-lv-TKB"/>
+                                                <constraint firstItem="REc-VH-HPy" firstAttribute="top" secondItem="MwQ-Wo-L3u" secondAttribute="top" id="czf-32-bRt"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="colView" destination="REc-VH-HPy" id="7CU-mc-xGe"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JPg-Q6-i5F" firstAttribute="bottom" secondItem="ASY-C8-ZPt" secondAttribute="bottom" id="7BL-ub-z3q"/>
+                            <constraint firstItem="JPg-Q6-i5F" firstAttribute="leading" secondItem="ASY-C8-ZPt" secondAttribute="leading" id="Tvb-kT-bH7"/>
+                            <constraint firstItem="JPg-Q6-i5F" firstAttribute="top" secondItem="UKP-0t-fmA" secondAttribute="top" id="lxc-N5-A7L"/>
+                            <constraint firstItem="JPg-Q6-i5F" firstAttribute="trailing" secondItem="ASY-C8-ZPt" secondAttribute="trailing" id="qDr-N9-QKy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ASY-C8-ZPt"/>
+                    </view>
+                    <connections>
+                        <outlet property="tbItems" destination="JPg-Q6-i5F" id="B61-OA-Kma"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LpQ-N1-CyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="941.60000000000002" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>

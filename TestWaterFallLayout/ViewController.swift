@@ -81,9 +81,6 @@ extension ViewController {
         let videoConfiguration = MOPUBNativeVideoAdRenderer.rendererConfiguration(with: videoSettings)
         let nativeAdConfig = MPStaticNativeAdRenderer.rendererConfiguration(with: settings)
         
-        //        nativeAdConfig?.supportedCustomEvents = ["FlurryNativeCustomEvent", "FacebookNativeCustomEvent", "MPGoogleAdMobNativeCustomEvent", "MPMoPubNativeCustomEvent"]
-        //
-        //        positioning.enableRepeatingPositions(withInterval: 2)
         collectionViewAdPlacer = MPCollectionViewAdPlacer(collectionView: colView,
                                                           viewController: self,
                                                           adPositioning: positioning,
@@ -116,16 +113,12 @@ extension ViewController {
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section % 2 == 1 {
-            return 1
-        } else {
-            return self.items.count
-        }
+        return self.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.section == 1 {
+        if indexPath.row == self.items.count - 1 {
             let cell = self.colView.mp_dequeueReusableCell(withReuseIdentifier: "native", for: indexPath) as! NativeAdColViewCell
             return cell
         } else {
@@ -137,12 +130,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             cell.backgroundColor = UIColor.red
             return cell
         }
-        
     }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
+   
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 1 {
@@ -151,26 +140,43 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         return CGSize(width: self.colView.frame.size.width, height: 50)
     }
     
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 2
+//    }
+    
     
 }
 
 
 extension ViewController: WaterfallLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, layout: WaterfallLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 0 {
-            switch indexPath.row {
-            case 0:
-                return CGSize(width: 20, height: 30)
-            case 1:
-                return CGSize(width: 20, height: 40)
-            case 2:
-                return CGSize(width: 20, height: 20)
-            default:
-                return CGSize(width: 20, height: 40)
-            }
-        } else {
+        switch indexPath.row {
+        case 0:
+            return CGSize(width: 20, height: 30)
+        case 1:
+            return CGSize(width: 20, height: 40)
+        case 2:
+            return CGSize(width: 20, height: 20)
+        default:
             return WaterfallLayout.automaticSize
         }
+        
+        
+//
+//        if indexPath.section != 0 && indexPath.section % 7 != 0  {
+//            switch indexPath.row {
+//            case 0:
+//                return CGSize(width: 20, height: 30)
+//            case 1:
+//                return CGSize(width: 20, height: 40)
+//            case 2:
+//                return CGSize(width: 20, height: 20)
+//            default:
+//                return CGSize(width: 20, height: 40)
+//            }
+//        } else {
+//            return WaterfallLayout.automaticSize
+//        }
 
     }
 
@@ -181,6 +187,7 @@ extension ViewController: WaterfallLayoutDelegate {
         default:
             return .flow(column: 1)
         }
+        
 
     }
 
@@ -197,16 +204,19 @@ extension ViewController: WaterfallLayoutDelegate {
 extension ViewController {
     
     func fetchData() {
-        let url: URL = URL(string: "http://server.sprueche-app.de/phpScripts/items.php?hl=de&type=100&amount=5")!
+        let url: URL = URL(string: "http://server.sprueche-app.de/phpScripts/items.php?hl=de&type=100&amount=8")!
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             if let data = response.data {
                 do {
                     print(String.init(data: data, encoding: .utf8))
                     let items = try JSONDecoder().decode(MyData.self, from: data)
                     self.items = items.items!
-                    if self.items.count > 0 {
-                        self.colView.reloadData()
+                    DispatchQueue.main.async {
+                        if self.items.count > 0 {
+                            self.colView.reloadData()
+                        }
                     }
+                    
                 } catch {
                     print(error.localizedDescription)
                     self.items = []
