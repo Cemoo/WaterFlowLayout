@@ -12,6 +12,7 @@ import MoPub
 
 class MainVC: UIViewController {
     
+    var itemsArray = [[Item]]()
     var items = [Item]()
     @IBOutlet weak var tbItems: UITableView!
     var placer: MPTableViewAdPlacer!
@@ -40,23 +41,19 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource, MPAdViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return self.itemsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbItems.mp_dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainCell
-        cell.items = self.items
+        cell.items = self.itemsArray[indexPath.row]
         cell.colView.reloadData()
         return cell
        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row % 2 == 0 {
-            return self.view.frame.size.height
-        } else {
-            return 1
-        }
+         return self.view.frame.size.height
         
     }
     
@@ -102,12 +99,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource, MPAdViewDelegate {
         let targeting: MPNativeAdRequestTargeting! = MPNativeAdRequestTargeting()
         targeting.desiredAssets = NSSet(objects: kAdIconImageKey, kAdMainImageKey, kAdCTATextKey, kAdTextKey, kAdTitleKey) as Set<NSObject>
         
-        // Creates a table view ad placer that uses a sample cell for its layout.
-        // Replace the defaultAdRenderingClass with your own subclass that implements MPAdRendering.
-        
         placer = MPTableViewAdPlacer(tableView: self.tbItems, viewController: self, rendererConfigurations: [nativeAdConfig as Any, videoConfiguration as Any])
-        
-       // placer = MPTableViewAdPlacer(tableView: self.tbItems, viewController: self, adPositioning: positioning, rendererConfigurations: [nativeAdConfig as Any, videoConfiguration as Any])
         
         placer.loadAds(forAdUnitID: sampleAdUnitID, targeting: targeting)
     }
@@ -129,7 +121,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource, MPAdViewDelegate {
 extension MainVC {
     
     func fetchData() {
-        let url: URL = URL(string: "http://server.sprueche-app.de/phpScripts/items.php?hl=de&type=100&amount=7")!
+        let url: URL = URL(string: "http://server.sprueche-app.de/phpScripts/items.php?hl=de&type=100&amount=10")!
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             if let data = response.data {
                 do {
@@ -138,6 +130,7 @@ extension MainVC {
                     self.items = items.items!
                     DispatchQueue.main.async {
                         if self.items.count > 0 {
+                            self.feedDataForCell(inc: 5)
                             self.tbItems.reloadData()
                         }
                     }
@@ -147,6 +140,20 @@ extension MainVC {
                     self.items = []
                 }
             }
+        }
+    }
+    
+    
+    func feedDataForCell(inc: Int) {
+        self.itemsArray = self.items.chunked(by: inc)
+    }
+    
+}
+
+extension Array {
+    func chunked(by chunkSize: Int) -> [[Element]] {
+        return stride(from: 0, to: self.count, by: chunkSize).map {
+            Array(self[$0..<Swift.min($0 + chunkSize, self.count)])
         }
     }
 }
