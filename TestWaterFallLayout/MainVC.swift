@@ -28,6 +28,9 @@ class MainVC: UIViewController {
         
         let nib = UINib(nibName: "AdCell", bundle: nil)
         tbItems.register(nib, forCellReuseIdentifier: "ad")
+        
+        tbItems.rowHeight = UITableViewAutomaticDimension
+        tbItems.estimatedRowHeight = 44
         fetchData()
         //configAd()
         setPlacer()
@@ -48,14 +51,14 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource, MPAdViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbItems.mp_dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainCell
         cell.items = self.itemsArray[indexPath.row]
+        //cell.heightConst.constant = cell.colView.contentSize.height
         cell.colView.reloadData()
         return cell
        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return self.view.frame.size.height
-        
+        return self.view.frame.size.height
     }
     
     private func calculateHeightForNativeAdCell() -> CGSize {
@@ -123,7 +126,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource, MPAdViewDelegate {
 extension MainVC {
     
     func fetchData() {
-        let url: URL = URL(string: "http://server.sprueche-app.de/phpScripts/items.php?hl=de&type=100&amount=10")!
+        let url: URL = URL(string: "http://server.sprueche-app.de/phpScripts/items.php?hl=de&type=100&amount=50")!
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             if let data = response.data {
                 do {
@@ -139,7 +142,6 @@ extension MainVC {
                     
                 } catch {
                     print(error.localizedDescription)
-                    self.items = []
                 }
             }
         }

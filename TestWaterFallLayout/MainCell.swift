@@ -12,6 +12,7 @@ import MoPub
 
 class MainCell: UITableViewCell, MPCollectionViewAdPlacerDelegate {
 
+    @IBOutlet weak var heightConst: NSLayoutConstraint!
     @IBOutlet weak var colView: UICollectionView!
     @IBOutlet weak var adView: UIView!
     private var collectionViewAdPlacer: MPCollectionViewAdPlacer!

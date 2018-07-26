@@ -48,6 +48,9 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="REc-VH-HPy">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="511.5"/>
                                                     <color key="backgroundColor" red="0.42320196469999999" green="0.1982780388" blue="0.79796476930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="511.5" id="vxV-Nb-YfR"/>
+                                                    </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mEt-RN-0yd">
                                                         <size key="itemSize" width="50" height="50"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -75,6 +78,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="colView" destination="REc-VH-HPy" id="7CU-mc-xGe"/>
+                                            <outlet property="heightConst" destination="vxV-Nb-YfR" id="6XM-TH-x9D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
