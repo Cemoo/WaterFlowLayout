@@ -10,10 +10,12 @@ import UIKit
 import Alamofire
 import MoPub
 
+
 class MainVC: UIViewController {
     
     var itemsArray = [[Item]]()
     var items = [Item]()
+    
     @IBOutlet weak var tbItems: UITableView!
     var placer: MPTableViewAdPlacer!
     var positioning = MPClientAdPositioning()
@@ -29,9 +31,8 @@ class MainVC: UIViewController {
         fetchData()
         //configAd()
         setPlacer()
-        // Do any additional setup after loading the view.
     }
-
+    
 }
 
 extension MainVC: UITableViewDelegate, UITableViewDataSource, MPAdViewDelegate {
@@ -117,6 +118,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource, MPAdViewDelegate {
     
     
 }
+
 
 extension MainVC {
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eho-ij-upb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cbr-B7-lPz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,56 +10,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--RootVC-->
+        <scene sceneID="C2r-nT-uaC">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestWaterFallLayout" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="M0z-Od-4bT" customClass="RootVC" customModule="TestWaterFallLayout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JlI-zh-bKf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LLh-eI-srl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oOD-SJ-raV">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="z17-as-vL1">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="LLh-eI-srl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5lK-Xl-gY9"/>
-                            <constraint firstItem="LLh-eI-srl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="J5R-EA-Tki"/>
-                            <constraint firstItem="LLh-eI-srl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="W30-WR-nRE"/>
-                            <constraint firstItem="LLh-eI-srl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="v0Q-FH-fQa"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="TVc-Uk-zuH"/>
                     </view>
-                    <connections>
-                        <outlet property="colView" destination="LLh-eI-srl" id="lYv-o0-o2u"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="E98-hR-eGs"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1lS-P5-Sqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141.59999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2095" y="-598"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="Oxp-v9-q18">
             <objects>
-                <viewController id="eho-ij-upb" customClass="MainVC" customModule="TestWaterFallLayout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="eho-ij-upb" customClass="MainVC" customModule="TestWaterFallLayout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UKP-0t-fmA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +95,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LpQ-N1-CyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941.60000000000002" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1262" y="107"/>
+        </scene>
+        <!--MenuVC1-->
+        <scene sceneID="pM6-lc-MI7">
+            <objects>
+                <viewController storyboardIdentifier="menu1" id="kIy-KN-HOQ" customClass="MenuVC1" customModule="TestWaterFallLayout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7f9-7E-wR4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xft-Zk-h5z">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xft-Zk-h5z" firstAttribute="leading" secondItem="yqw-q5-XVk" secondAttribute="leading" id="0b3-2F-BW7"/>
+                            <constraint firstItem="Xft-Zk-h5z" firstAttribute="trailing" secondItem="yqw-q5-XVk" secondAttribute="trailing" id="MtA-vm-sOc"/>
+                            <constraint firstItem="Xft-Zk-h5z" firstAttribute="top" secondItem="yqw-q5-XVk" secondAttribute="top" id="fvL-d9-OqW"/>
+                            <constraint firstItem="Xft-Zk-h5z" firstAttribute="bottom" secondItem="yqw-q5-XVk" secondAttribute="bottom" id="uQO-NM-eSa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yqw-q5-XVk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cql-5o-EVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2007.2" y="108.39580209895054"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d4R-Cf-eT4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cbr-B7-lPz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kX6-r9-u8D">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M0z-Od-4bT" kind="relationship" relationship="rootViewController" id="wtZ-pQ-arn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8D-AU-2cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1261.5999999999999" y="-597.75112443778119"/>
         </scene>
     </scenes>
 </document>

@@ -10,4 +10,5 @@ pod 'WaterfallLayout', '~> 0.1'
 pod 'mopub-ios-sdk'
 pod 'Alamofire', '~> 4.7'
 pod 'SDWebImage', '~> 4.0'
+pod 'ViewPager-Swift'
 end

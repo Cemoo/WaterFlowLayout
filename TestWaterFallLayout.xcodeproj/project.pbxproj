@@ -24,6 +24,9 @@
 		52B14FCA2105E756006BD577 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14FC92105E756006BD577 /* Item.swift */; };
 		52B14FCC21066484006BD577 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B14FCB21066484006BD577 /* CustomCell.xib */; };
 		52B14FCE21067354006BD577 /* MyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B14FCD21067354006BD577 /* MyLayout.swift */; };
+		52BB21C32109B9D50095C39E /* MenuVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB21C22109B9D50095C39E /* MenuVC1.swift */; };
+		52BB21C52109B9E10095C39E /* MenuVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB21C42109B9E10095C39E /* MenuVC2.swift */; };
+		52BB21C72109BB160095C39E /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB21C62109BB160095C39E /* RootVC.swift */; };
 		9A3DE25A1320941D39CADBD5 /* Pods_TestWaterFallLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B9B36930FD84BC0752965C /* Pods_TestWaterFallLayout.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		52B14FC92105E756006BD577 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		52B14FCB21066484006BD577 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		52B14FCD21067354006BD577 /* MyLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLayout.swift; sourceTree = "<group>"; };
+		52BB21C22109B9D50095C39E /* MenuVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC1.swift; sourceTree = "<group>"; };
+		52BB21C42109B9E10095C39E /* MenuVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC2.swift; sourceTree = "<group>"; };
+		52BB21C62109BB160095C39E /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 		CD30FA50D905B01EE2B627FA /* Pods-TestWaterFallLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestWaterFallLayout.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestWaterFallLayout/Pods-TestWaterFallLayout.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +99,7 @@
 		52B14FAC2105C40A006BD577 /* TestWaterFallLayout */ = {
 			isa = PBXGroup;
 			children = (
+				52BB21BD2109B4A80095C39E /* Menu */,
 				52B14FAD2105C40A006BD577 /* AppDelegate.swift */,
 				52B14FAF2105C40A006BD577 /* ViewController.swift */,
 				52B14FB12105C40A006BD577 /* Main.storyboard */,
@@ -113,6 +120,16 @@
 				52618FA12107BA2800017B8A /* AdCell.swift */,
 			);
 			path = TestWaterFallLayout;
+			sourceTree = "<group>";
+		};
+		52BB21BD2109B4A80095C39E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				52BB21C42109B9E10095C39E /* MenuVC2.swift */,
+				52BB21C22109B9D50095C39E /* MenuVC1.swift */,
+				52BB21C62109BB160095C39E /* RootVC.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		853015BA189EAAE1997DB3E7 /* Pods */ = {
@@ -222,6 +239,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TestWaterFallLayout/Pods-TestWaterFallLayout-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/ViewPager-Swift/ViewPager_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/WaterfallLayout/WaterfallLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/mopub-ios-sdk/MoPub.framework",
 			);
@@ -229,6 +247,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewPager_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WaterfallLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MoPub.framework",
 			);
@@ -265,7 +284,10 @@
 				52B14FB02105C40A006BD577 /* ViewController.swift in Sources */,
 				52B14FC22105CDD2006BD577 /* HeaderView.swift in Sources */,
 				52B14FC42105CE7B006BD577 /* CustomCell.swift in Sources */,
+				52BB21C32109B9D50095C39E /* MenuVC1.swift in Sources */,
 				52B14FAE2105C40A006BD577 /* AppDelegate.swift in Sources */,
+				52BB21C72109BB160095C39E /* RootVC.swift in Sources */,
+				52BB21C52109B9E10095C39E /* MenuVC2.swift in Sources */,
 				52618FA22107BA2800017B8A /* AdCell.swift in Sources */,
 				52B14FCE21067354006BD577 /* MyLayout.swift in Sources */,
 				52618F9C2107A7BC00017B8A /* MainVC.swift in Sources */,
@@ -419,10 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TCFDLZ395L;
 				INFOPLIST_FILE = TestWaterFallLayout/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cemal.TestWaterFallLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -438,10 +457,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TCFDLZ395L;
 				INFOPLIST_FILE = TestWaterFallLayout/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cemal.TestWaterFallLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

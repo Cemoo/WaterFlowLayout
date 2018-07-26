@@ -136,12 +136,14 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ViewPager-Swift/ViewPager_Swift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WaterfallLayout/WaterfallLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/mopub-ios-sdk/MoPub.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ViewPager-Swift/ViewPager_Swift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WaterfallLayout/WaterfallLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/mopub-ios-sdk/MoPub.framework"
 fi

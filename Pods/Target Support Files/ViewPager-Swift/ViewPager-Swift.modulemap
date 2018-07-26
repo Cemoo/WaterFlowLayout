@@ -1,0 +1,6 @@
+framework module ViewPager_Swift {
+  umbrella header "ViewPager-Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

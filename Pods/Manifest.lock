@@ -14,20 +14,23 @@ PODS:
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
+  - ViewPager-Swift (1.2.1)
   - WaterfallLayout (0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - mopub-ios-sdk
   - SDWebImage (~> 4.0)
+  - ViewPager-Swift
   - WaterfallLayout (~> 0.1)
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   mopub-ios-sdk: fe1302dfcff6929360ea4b7fb1bc7375c13c7074
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  ViewPager-Swift: 2ec693504b75e818fc86437499860b64f0331b22
   WaterfallLayout: 44cdae408089e6459b0ac39b327dd4030d546f09
 
-PODFILE CHECKSUM: 3906d85422bbf77e4bc449eaacf404bf7fbdbfa2
+PODFILE CHECKSUM: 5fe7970984269cd227acbb8189fd9b6897192a0f
 
 COCOAPODS: 1.4.0
